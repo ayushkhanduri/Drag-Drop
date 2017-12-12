@@ -1,0 +1,62 @@
+<div ng-show="!showEditPanel">
+    <div id= 'block-container'> 
+        <h1 style='text-align:center;'> Containers </h1> 
+        <!-- <header-div></header-div>  -->
+        <body-div></body-div> 
+        <!-- <footer-div></footer-div> -->
+    </div>
+    
+    <div id='elements-container'> 
+        <h1 style='text-align:center;'> Elements </h1>
+        <header-drag></header-drag> 
+        <image-drag> </image-drag>
+        <parah-drag></parah-drag>
+        <horizontal-line-drop></horizontal-line-drop>
+        <html-drop></html-drop>
+        <footer-template></footer-template>
+        <logo-dir></logo-dir>
+        <button class="btn btn-default" ng-click="sendMail()">Send Mail</button>
+    </div>
+    
+</div>
+
+
+<div id="editPanel" ng-show="showEditPanel">
+    <div class="textEditor" ng-show="richText">
+        <textarea name="editor1" id="editor1"  >&lt;p&gt;Initial editor content.&lt;/p&gt;</textarea>
+    </div>
+    <div ng-show="!richText">
+        <h1> Edit Panel</h1>
+        <form>
+            <div class= "editProperties" ng-repeat="(key,value) in someDefaultValues">
+                <div>
+                    <label class="labelClass">{{key }}</label>
+                    <input type="text" class="form-control input-sm" value={{value}} ng-model="someDefaultValues[key]"/> 
+                </div>
+            </div>
+        </form>
+        <div id="imageContainer" ng-if="imageSelection">
+            
+            <div class="imageSelection" >   
+                          
+                    <div class="loader" ng-if="!showImages"></div>
+                    <div ng-if="showImages">
+                        <div class="left-right">
+                                <button class="btn btn-default" ng-disabled="currentPage===1" ng-click="changePage(-1)">&#60;</button> {{currentPage}}/{{numberOfPages()}}
+                                <button class="btn btn-default" ng-disabled="currentPage >= allImages.length/pageSize - 1" ng-click="changePage(1)">&#62;</button>
+                        </div> 
+                        <div class="imageSection" style="display:inline-block; margin:2px;" ng-repeat="image in showImages track by $index |limitTo: pageSize" ng-click="changeImageSource($event,image)">
+                            <img src={{image}} title={{$index}} width="100" height="100"/>
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="action-buttons">
+        <input type="button" class="btn btn-success" value="Save" ng-click="save()"/>        
+        <input type="button" class="btn btn-default" value="Cancel" ng-click="closeAllPanels()"/>
+        <input type="button" class="btn btn-danger" value="Delete" ng-click="delete()"/>
+    </div> 
+    
+</div>
+

@@ -1,0 +1,5 @@
+@import url("../style.css");
+@import url("./home/template/home.css");
+@import url("./create_template/template/create_template.css");
+@import url("./create_template/directive/css/drop-template.css");
+@import url("./create_template/directive/css/drag-template.css");

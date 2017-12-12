@@ -1,0 +1,45 @@
+
+<div id="create-template">
+    <div id="drop-container">
+        <drop-container></drop-container>    
+    </div>    
+    
+    
+    <div id="all-components" class="sidenav" ng-if="!editmode" >
+        <drag-container></drag-container>
+    </div>
+
+    <!-- <div class="sidenav" ng-if="editmode">
+        <h1 class="edit-heading"> Edit Element </h1>
+        <div class="edit-panel">
+            <div ng-repeat= "(key , value) in allElementProperties">
+                <label>{{key.charAt(0).toUpperCase() + key.slice(1) + " : "}}</label> <input id={{key}} value={{value}} type ="text"/>
+            </div>
+            <h1 class="edit-heading">
+                Element Specific Properties
+            </h1>
+            <div ng-repeat= "(key, value) in specificProperties">
+                <label>{{key.charAt(0).toUpperCase() + key.slice(1) + " : "}}</label> <input id={{key}} value={{value}} type ="text"/>
+            </div>
+        </div>
+
+        <div class="action-buttons">
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="delete()"/>
+                <input type="button" class="btn btn-primary" value="Save" ng-click="save()"/>
+        </div> -->
+        <!-- <div class="edit-panel">
+            <label>Change Text : </label><input type="text" style= "display:inline-block;" class="form-control" id="inner_text" /> <br/>
+            <label>Text Align : </label>
+            <select id="header-selected"> 
+                    <option value="left">left</option>
+                    <option value="right">right</option>
+                    <option value="center">center</option>
+            </select><br/>
+            <label for="color">Color: </label><input type="text" id="color"/><br/>
+            <div class="action-buttons">
+                <input type="button" class="btn btn-danger" value="Delete" ng-click="delete()"/>
+                <input type="button" class="btn btn-primary" value="Save" ng-click="save()"/>
+            </div>
+        </div> -->
+    <!-- </div> -->
+</div>
